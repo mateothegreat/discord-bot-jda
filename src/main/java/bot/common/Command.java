@@ -1,7 +1,8 @@
-package commands;
+package bot.common;
 
 import lombok.Data;
 import lombok.ToString;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,9 +16,11 @@ public class Command {
     private String command;
     private String payload;
 
-    public Command(String message) {
+    private MessageReceivedEvent event;
 
-        Matcher matcher = PATTERN.matcher(message);
+    public Command(MessageReceivedEvent event) {
+
+        Matcher matcher = PATTERN.matcher(event.getMessage().getContentRaw());
 
         if (matcher.find()) {
 
@@ -26,6 +29,9 @@ public class Command {
 
         }
 
+        this.event = event;
+
     }
 
 }
+

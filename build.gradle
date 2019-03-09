@@ -17,9 +17,11 @@ repositories {
 dependencies {
 
     implementation("net.dv8tion:JDA:3.8.3_460")
-//    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.26'
-    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.6'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.2'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.2'
 
-//    testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.26'
+    implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.6'
+    implementation group: 'org.reflections', name: 'reflections', version: '0.9.11'
 
 }
